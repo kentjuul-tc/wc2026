@@ -16,9 +16,14 @@ public final class DateUtils {
     }
 
     /**
-     * Formats a {@link LocalDateTime} as an ISO-8601 string (UTC assumed).
+     * Formats a {@link LocalDateTime} as an ISO-8601 string with a literal {@code Z} suffix.
      *
-     * @param dateTime the value to format
+     * <p><strong>Note:</strong> {@code LocalDateTime} carries no timezone information.
+     * The {@code Z} suffix is appended as a literal to indicate that callers are
+     * expected to supply values that are already expressed in UTC (as returned by
+     * the football-data.org API). No timezone conversion is performed.
+     *
+     * @param dateTime the UTC-based date/time value to format
      * @return formatted string, e.g. {@code "2026-06-14T18:00:00Z"}
      */
     public static String format(LocalDateTime dateTime) {
